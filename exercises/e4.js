@@ -31,9 +31,8 @@ const second = (val) => {
 
 export const handlePromise =
   first()
-    .then((val) => second(val)
-     )
-    .then((currentVal)=> currentVal )
+    .then((val) => second(val))
+    .then((currentVal)=> currentVal)
 
 
 // === TEST YOURSELF ===
