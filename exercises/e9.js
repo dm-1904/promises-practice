@@ -6,14 +6,15 @@
 
 /**
  * @task
- * Create a function `iterate` that prints the first function argument 
+ * Create a function `iterate` that prints the first function argument
  * (an integer) to it and then returns that argument + 1
  * The function must be exported
  */
 
 export function iterate(arg) {
   // Your code goes here...
-  
+  console.log(arg)
+  return arg + 1
 }
 
 /**
@@ -24,21 +25,25 @@ export function iterate(arg) {
 
 export function alwaysThrows() {
   // Your code goes here...
-
+  throw new Error('OH NOES')
 }
 
 /**
  * @task
- * Create a function `onReject` that 
+ * Create a function `onReject` that
  * * Takes an argument that can be either error object or a string value
  * * Logs the error object message property value in the console if the argument is an object
  * * Logs the argument value in the console in any other case
  * The function must be exported
  */
 
-export function onReject() {
+export function onReject(arg) {
   // Your code goes here...
-
+  if(typeof arg === 'object') {
+    console.log(arg.message)
+  } else {
+    console.log(arg)
+  }
 }
 
 /**
@@ -63,7 +68,19 @@ export function onReject() {
  */
 
 // Your code goes here...
-export const promise;
+export const promise = Promise.resolve()
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  alwaysThrows()
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .then((x) => iterate(x))
+  .catch((err) => onReject(err))
 
 
 
